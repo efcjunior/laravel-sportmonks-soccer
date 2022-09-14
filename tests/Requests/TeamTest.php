@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group team
- */
-class TeamTest extends TestCase {
-
+class TeamTest extends TestCase
+{
     /**
      * @test
      */

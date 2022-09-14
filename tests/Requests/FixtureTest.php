@@ -3,11 +3,8 @@
 use Carbon\Carbon;
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group live-score
- */
-class FixtureTest extends TestCase {
-
+class FixtureTest extends TestCase
+{
     /**
      * @test
      */
@@ -15,7 +12,7 @@ class FixtureTest extends TestCase {
     {
         $fromDate = Carbon::createFromDate(2016, 9, 10);
         $toDate = Carbon::createFromDate(2016, 10, 10);
-        $response = SoccerAPI::fixtures()->betweenDates($fromDate,$toDate);
+        $response = SoccerAPI::fixtures()->betweenDates($fromDate, $toDate);
 
         $this->assertNotEmpty($response->data);
     }
@@ -27,7 +24,7 @@ class FixtureTest extends TestCase {
     {
         $fromDate = '2016-09-10';
         $toDate = '2016-10-10';
-        $response = SoccerAPI::fixtures()->betweenDates($fromDate,$toDate);
+        $response = SoccerAPI::fixtures()->betweenDates($fromDate, $toDate);
 
         $this->assertNotEmpty($response->data);
     }
@@ -69,9 +66,8 @@ class FixtureTest extends TestCase {
      */
     public function it_retrieves_fixtures_between_teams()
     {
-        $response = SoccerAPI::fixtures()->headToHead($this->firstTeamId,$this->secondTeamId);
+        $response = SoccerAPI::fixtures()->headToHead($this->firstTeamId, $this->secondTeamId);
 
         $this->assertNotEmpty($response->data);
     }
-
 }

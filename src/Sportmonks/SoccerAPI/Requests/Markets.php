@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Markets extends SoccerAPIClient {
-
+class Markets extends SoccerAPIClient
+{
     public function all()
     {
         return $this->callData('markets');
@@ -15,5 +15,4 @@ class Markets extends SoccerAPIClient {
     {
         return $this->call('markets/' . $marketsId);
     }
-
 }

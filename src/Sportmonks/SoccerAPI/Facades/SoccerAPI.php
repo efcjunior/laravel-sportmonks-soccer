@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SoccerAPI extends Facade {
-
+class SoccerAPI extends Facade
+{
     /**
      * Get the registered name of the component.
      *
@@ -15,5 +15,4 @@ class SoccerAPI extends Facade {
     {
         return 'soccerapi';
     }
-
 }

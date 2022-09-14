@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group commentary
- */
-class CommentaryTest extends TestCase {
-
+class CommentaryTest extends TestCase
+{
     /**
      * @test
      */
@@ -15,5 +13,4 @@ class CommentaryTest extends TestCase {
 
         $this->assertNotEmpty($response->data);
     }
-
 }

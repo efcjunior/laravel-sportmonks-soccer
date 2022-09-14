@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group top-scorer
- */
-class TopScorerTest extends TestCase {
-
+class TopScorerTest extends TestCase
+{
     /**
      * @test
      */
@@ -15,5 +13,4 @@ class TopScorerTest extends TestCase {
 
         $this->assertNotEmpty($response->data);
     }
-
 }

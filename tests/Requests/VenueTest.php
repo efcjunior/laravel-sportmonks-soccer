@@ -2,11 +2,8 @@
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group countries
- */
-class VenueTest extends TestCase {
-
+class VenueTest extends TestCase
+{
     /**
      * @test
      */
@@ -16,5 +13,4 @@ class VenueTest extends TestCase {
 
         $this->assertEquals($this->venueId, $response->data->id);
     }
-
 }

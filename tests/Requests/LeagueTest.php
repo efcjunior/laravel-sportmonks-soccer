@@ -3,11 +3,8 @@
 use Illuminate\Support\Facades\Config;
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group competition
- */
-class LeagueTest extends TestCase {
-
+class LeagueTest extends TestCase
+{
     /**
      * @test
      */
@@ -24,6 +21,7 @@ class LeagueTest extends TestCase {
     public function it_retrieves_leagues_without_data()
     {
         Config::set('soccerapi.without_data', true);
+
         $response = SoccerAPI::leagues()->all();
 
         $this->assertArrayHasKey(0, $response);
@@ -39,5 +37,4 @@ class LeagueTest extends TestCase {
         $this->assertEquals($this->leagueId, $response->data->id);
         $this->assertNotNull($response->data->name);
     }
-
 }

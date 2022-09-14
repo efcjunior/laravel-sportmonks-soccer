@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class TopScorer extends SoccerAPIClient {
-
+class TopScorer extends SoccerAPIClient
+{
     public function bySeasonId($seasonId)
     {
         return $this->callData('topscorers/season/' . $seasonId);
@@ -15,5 +15,4 @@ class TopScorer extends SoccerAPIClient {
     {
         return $this->callData('topscorers/season/' . $seasonId . '/aggregated');
     }
-
 }

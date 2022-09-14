@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group odds
- */
-class OddsTest extends TestCase {
-
+class OddsTest extends TestCase
+{
     /**
      * @test
      */
@@ -25,5 +23,4 @@ class OddsTest extends TestCase {
 
         $this->assertNotEmpty($response->data);
     }
-
 }

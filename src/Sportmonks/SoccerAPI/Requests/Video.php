@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Video extends SoccerAPIClient {
-
+class Video extends SoccerAPIClient
+{
     public function all()
     {
         return $this->callData('highlights/');
@@ -15,5 +15,4 @@ class Video extends SoccerAPIClient {
     {
         return $this->callData('highlights/fixture/' . $matchId);
     }
-
 }

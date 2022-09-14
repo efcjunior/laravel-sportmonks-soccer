@@ -1,12 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-
-/**
- * @group bookmaker
- */
-class MarketsTest extends TestCase {
-
+class MarketsTest extends TestCase
+{
     /**
      * @test
      */
@@ -17,12 +14,13 @@ class MarketsTest extends TestCase {
         $this->assertNotEmpty($response->data);
     }
 
-        /**
+    /**
      * @test
      */
     public function it_retrieves_markets_without_data()
     {
         Config::set('soccerapi.without_data', true);
+
         $response = SoccerAPI::markets()->all();
 
         $this->assertArrayHasKey(0, $response);
@@ -38,5 +36,4 @@ class MarketsTest extends TestCase {
         $this->assertEquals($this->marketsId, $response->data->id);
         $this->assertNotNull($response->data->name);
     }
-
 }

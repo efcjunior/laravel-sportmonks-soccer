@@ -3,10 +3,24 @@
 use Illuminate\Support\Facades\Config;
 use Sportmonks\SoccerAPI\SoccerAPIServiceProvider;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
-
-    protected $matchId, $tvStationMatchId, $leagueId, $continentId, $countryId, $fixtureId, $teamId, $firstTeamId, $secondTeamId,
-        $seasonId, $playerId, $bookmakerId, $venueId, $roundId, $team1Id, $team2Id;
+class TestCase extends Illuminate\Foundation\Testing\TestCase
+{
+    protected $matchId;
+    protected $tvStationMatchId;
+    protected $leagueId;
+    protected $continentId;
+    protected $countryId;
+    protected $fixtureId;
+    protected $teamId;
+    protected $firstTeamId;
+    protected $secondTeamId;
+    protected $seasonId;
+    protected $playerId;
+    protected $bookmakerId;
+    protected $venueId;
+    protected $roundId;
+    protected $team1Id;
+    protected $team2Id;
 
     public function setUp()
     {
@@ -48,5 +62,4 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
         return $app;
     }
-
 }

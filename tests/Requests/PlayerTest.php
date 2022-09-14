@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group player
- */
-class PlayerTest extends TestCase {
-
+class PlayerTest extends TestCase
+{
     /**
      * @test
      */
@@ -15,5 +13,4 @@ class PlayerTest extends TestCase {
 
         $this->assertEquals($this->playerId, $response->data->player_id);
     }
-
 }

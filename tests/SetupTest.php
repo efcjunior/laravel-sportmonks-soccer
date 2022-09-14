@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Config;
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class SetupTest extends TestCase {
-
+class SetupTest extends TestCase
+{
     /**
      * @expectedException InvalidArgumentException
      *
@@ -16,5 +16,4 @@ class SetupTest extends TestCase {
 
         $soccerAPI = new SoccerAPIClient();
     }
-
 }

@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class LiveScore extends SoccerAPIClient {
-
+class LiveScore extends SoccerAPIClient
+{
     public function today()
     {
         return $this->callData('livescores');
@@ -15,5 +15,4 @@ class LiveScore extends SoccerAPIClient {
     {
         return $this->callData('livescores/now');
     }
-
 }

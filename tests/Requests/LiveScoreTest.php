@@ -2,11 +2,8 @@
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group live-score
- */
-class LiveScoreTest extends TestCase {
-
+class LiveScoreTest extends TestCase
+{
     /**
      * @test
      */
@@ -26,5 +23,4 @@ class LiveScoreTest extends TestCase {
 
         $this->assertNotEmpty($response->data);
     }
-
 }

@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Odds extends SoccerAPIClient {
-
+class Odds extends SoccerAPIClient
+{
     public function byMatchId($matchId)
     {
         return $this->callData('odds/fixture/' . $matchId);
@@ -18,8 +18,6 @@ class Odds extends SoccerAPIClient {
 
     public function inplayByMatchId($matchId)
     {
-
-        return $this->callData('odds/inplay/fixture/' . $matchId );
+        return $this->callData('odds/inplay/fixture/' . $matchId);
     }
-
 }

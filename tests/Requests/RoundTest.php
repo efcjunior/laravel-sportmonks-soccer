@@ -1,11 +1,9 @@
 <?php
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group video
- */
-class RoundTest extends TestCase {
-
+class RoundTest extends TestCase
+{
     /**
      * @test
      */
@@ -15,5 +13,4 @@ class RoundTest extends TestCase {
 
         $this->assertNotEmpty($response->data);
     }
-
 }

@@ -2,11 +2,10 @@
 
 namespace Sportmonks\SoccerAPI\Requests;
 
-
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Country extends SoccerAPIClient {
-
+class Country extends SoccerAPIClient
+{
     public function all()
     {
         return $this->callData('countries');
@@ -16,5 +15,4 @@ class Country extends SoccerAPIClient {
     {
         return $this->call('countries/' . $countryId);
     }
-
 }

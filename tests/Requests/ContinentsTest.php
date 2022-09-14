@@ -2,11 +2,8 @@
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group countries
- */
-class ContinentsTest extends TestCase {
-
+class ContinentsTest extends TestCase
+{
     /**
      * @test
      */
@@ -26,5 +23,4 @@ class ContinentsTest extends TestCase {
 
         $this->assertEquals($this->continentId, $response->data->id);
     }
-
 }

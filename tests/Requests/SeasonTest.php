@@ -2,11 +2,8 @@
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
-/**
- * @group season
- */
-class SeasonTest extends TestCase {
-
+class SeasonTest extends TestCase
+{
     /**
      * @test
      */
@@ -26,5 +23,4 @@ class SeasonTest extends TestCase {
 
         $this->assertEquals($this->seasonId, $response->data->id);
     }
-
 }

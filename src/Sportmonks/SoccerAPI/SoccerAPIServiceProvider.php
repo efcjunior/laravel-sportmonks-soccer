@@ -13,13 +13,9 @@ class SoccerAPIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $configPath = __DIR__ . '/../../config';
-
-        $this->mergeConfigFrom($configPath . '/config.php', 'soccerapi');
-
-        $this->publishes([
-            $configPath . '/config.php' => config_path('soccerapi.php'),
-        ], 'config');
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/soccerapi.php', 'soccerapi'
+        );
     }
 
     /**

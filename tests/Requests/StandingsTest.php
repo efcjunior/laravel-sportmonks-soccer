@@ -1,16 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class StandingsTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_standings_by_season()
+    public function test_retrieves_standings_by_season()
     {
-        $response = SoccerAPI::standings()->bySeasonId($this->seasonId);
+        $response = SoccerAPI::standings()
+            ->bySeasonId($this->seasonId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 }

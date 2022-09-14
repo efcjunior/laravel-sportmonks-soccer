@@ -1,16 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class TVStationTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_tvstations_by_match_id()
+    public function test_retrieves_tvstations_by_match_id()
     {
-        $response = SoccerAPI::tvstations()->byMatchId($this->tvStationMatchId);
+        $response = SoccerAPI::tvstations()
+            ->byMatchId($this->tvStationMatchId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 }

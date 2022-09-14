@@ -1,26 +1,34 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class LiveScoreTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_livescores_for_today()
+    public function test_retrieves_livescores_for_today()
     {
-        $response = SoccerAPI::livescores()->today();
+        $response = SoccerAPI::livescores()
+            ->today();
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_livescores_for_now()
+    public function test_retrieves_livescores_for_now()
     {
-        $response = SoccerAPI::livescores()->now();
+        $response = SoccerAPI::livescores()
+            ->now();
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 }

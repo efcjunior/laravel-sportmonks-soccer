@@ -1,37 +1,49 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
+use Illuminate\Support\Facades\Config;
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class MarketsTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_all_markets()
+    public function test_retrieves_all_markets()
     {
-        $response = SoccerAPI::markets()->all();
+        $response = SoccerAPI::markets()
+            ->all();
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_markets_without_data()
+    public function test_retrieves_markets_without_data()
     {
         Config::set('soccerapi.without_data', true);
 
-        $response = SoccerAPI::markets()->all();
+        $response = SoccerAPI::markets()
+            ->all();
 
         $this->assertArrayHasKey(0, $response);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_a_markets_by_id()
+    public function test_retrieves_a_markets_by_id()
     {
-        $response = SoccerAPI::markets()->byId($this->marketsId);
+        $response = SoccerAPI::markets()
+            ->byId($this->marketsId);
 
         $this->assertEquals($this->marketsId, $response->data->id);
         $this->assertNotNull($response->data->name);

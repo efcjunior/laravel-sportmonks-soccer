@@ -1,16 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class CommentaryTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_gets_commentaries_by_match_id()
+    public function test_it_gets_commentaries_by_match_id()
     {
-        $response = SoccerAPI::commentaries()->byMatchId($this->matchId);
+        $response = SoccerAPI::commentaries()
+            ->byMatchId($this->matchId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 }

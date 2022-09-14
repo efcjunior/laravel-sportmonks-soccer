@@ -1,26 +1,34 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
 class OddsTest extends TestCase
 {
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_odds_by_match_id()
+    public function test_retrieves_odds_by_match_id()
     {
-        $response = SoccerAPI::odds()->byMatchId($this->matchId);
+        $response = SoccerAPI::odds()
+            ->byMatchId($this->matchId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_odds_by_match_and_bookmaker_id()
+    public function test_retrieves_odds_by_match_and_bookmaker_id()
     {
-        $response = SoccerAPI::odds()->byMatchAndBookmakerId($this->matchId, $this->bookmakerId);
+        $response = SoccerAPI::odds()
+            ->byMatchAndBookmakerId($this->matchId, $this->bookmakerId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 }

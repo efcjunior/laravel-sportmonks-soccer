@@ -1,87 +1,97 @@
 # Laravel Sportmonks Soccer API
 
-Laravel wrapper for [Sportmonks](https://www.sportmonks.com/sports/soccer) (live) score API calls. 
-Documentation for the API can be found [here](https://www.sportmonks.com/sports/soccer)
+This package is a wrapper for Sportmonks Soccer API for Laravel 7/8/9.
+
+This is a fork of [kirill-latish/laravel-sportmonks-soccer](https://github.com/kirill-latish/laravel-sportmonks-soccer) with added support for Larvel 7+.
 
 ## Installation
 
-**1-** Require the package via Composer in your `composer.json`.
-```json
-{
-  "require": {
-    "kirill-latish/laravel-sportmonks-soccer": "^2.0"
-  }
-}
-```
-
-**2-** Run Composer to install or update the new requirement.
+Install the package via Composer:
 
 ```bash
-$ composer install
+composer require kfoobar/laravel-sportmonks-soccer
 ```
 
-or
+Add your API token to your `.env` file:
 
-```bash
-$ composer update
+```
+SPORTMONKS_API_TOKEN=
 ```
 
-**3-** Add the service provider to your `app/config/app.php` file
-```php
-Sportmonks\SoccerAPI\SoccerAPIServiceProvider::class,
-```
-
-**4-** Add the facade to your `app/config/app.php` file
-```php
-'SoccerAPI' => Sportmonks\SoccerAPI\Facades\SoccerAPI::class,
-```
-
-**5-** Publish the configuration file
+For more settings, you can publish the config file:
 
 ```bash
 $ php artisan vendor:publish --provider="Sportmonks\SoccerAPI\SoccerAPIServiceProvider"
 ```
 
-**6-** Review the configuration file and add your token (preferably through env: `'api_token' => env('API_TOKEN')` )
-
-```
-config/soccerapi.php
-```
-
-**7-** Review the configuration file and add your timezone (preferably through config file: `'timezone' => config('app.timezone')` )
-
-```
-config/soccerapi.php
-```
-
 ## Usage
 
-Refer to the official [docs](https://www.sportmonks.com/sports/soccer) as to which calls can be made and check the calls in traits under [Sportmonks\SoccerAPI\Requests](Sportmonks\SoccerAPI\Requests).
+Example when using the facade:
 
-For example, get all leagues (if using facade):
-
-```
+```php
 use SoccerAPI;
 
 ...
 
 $response = SoccerAPI::leagues()->all();
-```
-
-The above returns an object containing a `data` array.
-If you want to directly retrieve the data within `data`, change your config file: `'without_data' => true`
-
-Get a match by its id:
-
-```
 $response = SoccerAPI::fixtures()->byId($id);
 ```
 
-If you need to include other relations (check the official docs for which relations can be included):
+### Relations
 
-```
-$include = 'league,fixtures';
-// Or: $include = ['league', 'fixtures'];
+If you need to include other relations (check the official documentation for which relations can be included):
 
-$response = SoccerAPI::seasons()->setInclude($include)->all();
+```php
+$response = SoccerAPI::seasons()->setInclude(['league', 'fixtures'])->all();
 ```
+### Response
+The default behaviour is to return an object containing a `data` array:
+
+```php
+$response = SoccerAPI::fixtures()->byId($id);
+
+var_dump($response->data);
+```
+
+```json
+{
+    "data": [
+        {
+            "id": null,
+            "league_id": null,
+            "scores": {
+                "localteam_score": 0,
+                "visitorteam_score": 0
+            }
+        }
+    ]
+}
+```
+
+If you want to directly retrieve the properties inside `data`, set `skip_data` to `true` in your config file.
+
+```php
+$response = SoccerAPI::fixtures()->byId($id);
+
+var_dump($response);
+```
+
+```json
+{
+    "id": null,
+    "league_id": null,
+    "scores": {
+        "localteam_score": 0,
+        "visitorteam_score": 0
+    }
+}
+```
+
+## Documentation
+
+Please refer to the official [documentation](https://www.sportmonks.com/sports/soccer) as to which API calls can be made.
+
+
+## Contributing
+
+Thank you for considering contributing!

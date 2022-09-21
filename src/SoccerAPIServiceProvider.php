@@ -3,6 +3,7 @@
 namespace Sportmonks\SoccerAPI;
 
 use Illuminate\Support\ServiceProvider;
+use Sportmonks\SoccerAPI\SoccerAPI;
 
 class SoccerAPIServiceProvider extends ServiceProvider
 {
@@ -13,9 +14,9 @@ class SoccerAPIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/soccerapi.php', 'soccerapi'
-        );
+        $this->publishes([
+            __DIR__ . '/../config/sportmonks.php' => config_path('sportmonks.php'),
+        ]);
     }
 
     /**
@@ -25,6 +26,11 @@ class SoccerAPIServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/sportmonks.php',
+            'sportmonks'
+        );
+
         $this->app->singleton('soccerapi', function () {
             return new SoccerAPI();
         });

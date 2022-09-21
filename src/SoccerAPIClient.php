@@ -23,25 +23,23 @@ class SoccerAPIClient
      */
     public function __construct()
     {
-        $options = [
-            'base_uri'  => 'https://soccer.sportmonks.com/api/v2.0/',
-            'verify'    => app('env') === 'testing' ? false : true,
-        ];
+        $this->client = new Client([
+            'base_uri'  => config('sportmonks.api_url'),
+            'verify'    => app('env') !== 'production' ? false : true,
+        ]);
 
-        $this->client = new Client($options);
-
-        $this->apiToken = config('soccerapi.api_token');
+        $this->apiToken = config('sportmonks.api_token');
 
         if (empty($this->apiToken)) {
             throw new \InvalidArgumentException('No API token set');
         }
 
-        $this->timezone = empty(config('soccerapi.timezone'))
-            ? config('app.timezone')
-            : config('soccerapi.timezone');
+        $this->timezone = !empty(config('sportmonks.timezone'))
+            ? config('sportmonks.timezone')
+            : config('app.timezone');
 
-        $this->withoutData = !empty(config('soccerapi.without_data'))
-            ? config('soccerapi.without_data')
+        $this->withoutData = !empty(config('sportmonks.skip_data'))
+            ? config('sportmonks.skip_data')
             : false;
     }
 
@@ -89,8 +87,8 @@ class SoccerAPIClient
             return $response;
         }
 
-        if ($hasData && $this->withoutData) {
-            return $body->data;
+        if ($this->withoutData) {
+            return $body->data ?? null;
         }
 
         return $body;

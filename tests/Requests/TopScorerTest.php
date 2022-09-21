@@ -1,19 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-/**
- * @group top-scorer
- */
-class TopScorerTest extends TestCase {
-
+class TopScorerTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_all_top_scorer_by_season()
+    public function test_retrieves_all_top_scorer_by_season()
     {
-        $response = SoccerAPI::topscorers()->bySeasonId($this->seasonId);
+        $response = SoccerAPI::topscorers()
+            ->bySeasonId($this->seasonId);
 
         $this->assertNotEmpty($response->data);
     }
-
 }

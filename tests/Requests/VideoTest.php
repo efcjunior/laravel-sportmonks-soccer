@@ -1,29 +1,34 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-/**
- * @group video
- */
-class VideoTest extends TestCase {
-    
+class VideoTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_all_videos()
+    public function test_retrieves_all_videos()
     {
-        $response = SoccerAPI::videos()->all();
+        $response = SoccerAPI::videos()
+            ->all();
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_videos_by_match_id()
+    public function test_retrieves_videos_by_match_id()
     {
-        $response = SoccerAPI::videos()->byMatchId($this->matchId);
+        $response = SoccerAPI::videos()
+            ->byMatchId($this->matchId);
 
-        $this->assertNotEmpty($response->data);
+        $this->assertIsArray($response->data);
     }
-
 }

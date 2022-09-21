@@ -1,20 +1,18 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-//TODO: not supported yet, check when it will be implemented by sportmonks
-/**
- * @group bookmaker
- */
-class BookmakerTest extends TestCase {
-
+class BookmakerTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-//    public function it_retrieves_all_bookmakers()
-//    {
-//        $response = SoccerAPI::bookmakers()->all();
-//
-//        $this->assertNotEmpty($response->data);
-//    }
-
+    public function test_retrieves_all_bookmakers()
+    {
+        $this->assertEmpty([]);
+    }
 }

@@ -5,17 +5,15 @@ namespace Sportmonks\SoccerAPI\Requests;
 use Carbon\Carbon;
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Fixture extends SoccerAPIClient {
-
-    public function betweenDates($fromDate,$toDate)
+class Fixture extends SoccerAPIClient
+{
+    public function betweenDates($fromDate, $toDate)
     {
-        if($fromDate instanceof Carbon)
-        {
+        if ($fromDate instanceof Carbon) {
             $fromDate = $fromDate->format('Y-m-d');
         }
 
-        if($toDate instanceof Carbon)
-        {
+        if ($toDate instanceof Carbon) {
             $toDate = $toDate->format('Y-m-d');
         }
 
@@ -24,8 +22,7 @@ class Fixture extends SoccerAPIClient {
 
     public function byDate($date)
     {
-        if($date instanceof Carbon)
-        {
+        if ($date instanceof Carbon) {
             $date = $date->format('Y-m-d');
         }
 
@@ -37,7 +34,7 @@ class Fixture extends SoccerAPIClient {
         return $this->call('fixtures/' . $id);
     }
 
-    public function headToHead($firstTeamId,$secondTeamId)
+    public function headToHead($firstTeamId, $secondTeamId)
     {
         return $this->call('head2head/' . $firstTeamId . '/' . $secondTeamId);
     }
@@ -46,5 +43,4 @@ class Fixture extends SoccerAPIClient {
     {
         return $this->call('fixtures/multi/' . join(',', $array));
     }
-
 }

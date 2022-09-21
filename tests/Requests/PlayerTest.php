@@ -1,19 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-/**
- * @group player
- */
-class PlayerTest extends TestCase {
-
+class PlayerTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_gets_a_player_by_id()
+    public function test_gets_a_player_by_id()
     {
-        $response = SoccerAPI::players()->byId($this->playerId);
+        $response = SoccerAPI::players()
+            ->byId($this->playerId);
 
         $this->assertEquals($this->playerId, $response->data->player_id);
     }
-
 }

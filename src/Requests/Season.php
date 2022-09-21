@@ -4,8 +4,8 @@ namespace Sportmonks\SoccerAPI\Requests;
 
 use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Season extends SoccerAPIClient {
-
+class Season extends SoccerAPIClient
+{
     public function all()
     {
         return $this->callData('seasons');

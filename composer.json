@@ -1,7 +1,9 @@
 {
-    "name": "kirill-latish/laravel-sportmonks-soccer",
-    "description": "Laravel wrapper for Soccerama score API calls v2.0. Fork of rebing/laravel-soccerama",
-    "keywords": ["framework", "laravel", "soccer", "live-scores"],
+    "name": "kfoobar/laravel-sportmonks-soccer",
+    "description": "Laravel package for Sportmonks Soccer API v2.0. Fork of kirill-latish/laravel-sportmonks-soccer",
+    "keywords": ["laravel", "sportmonks", "soccer", "live-scores"],
+    "license": "MIT",
+    "type": "plugin",
     "authors": [
         {
             "name": "Rebing OÜ",
@@ -17,27 +19,42 @@
             "name": "Kirill Latish",
             "email": "kirill@livezone.io",
             "role": "Developer"
+        },
+        {
+            "name": "David Villa",
+            "email": "david@kfoobar.se",
+            "role": "Developer"
         }
     ],
-    "license": "MIT",
-    "type": "project",
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.6.2",
-        "illuminate/support": "~5.1",
-        "guzzlehttp/guzzle": "~6.0"
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^7|^8|^9",
+        "guzzlehttp/guzzle": "^6.5.5|^7.0.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.5",
-        "laravel/laravel": "5.4"
+        "phpunit/phpunit": "^8.5|^9.0",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/laravel": "^7|^8|^9"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Sportmonks\\SoccerAPI\\": "src/"
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "Sportmonks\\SoccerAPI\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sportmonks\\SoccerAPI\\SoccerAPIServiceProvider"
+            ],
+            "aliases": {
+                "SoccerAPI": "Sportmonks\\SoccerAPI\\Facades\\SoccerAPI"
+            }
+        }
     }
 }

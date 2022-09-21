@@ -1,30 +1,34 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
 
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-/**
- * @group countries
- */
-class ContinentsTest extends TestCase {
-
+class ContinentsTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_all_continents()
+    public function test_retrieves_all_continents()
     {
-        $response = SoccerAPI::continents()->all();
+        $response = SoccerAPI::continents()
+            ->all();
 
-        $this->assertNotEmpty($response);
+        $this->assertIsArray($response->data);
     }
 
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_a_continent_by_id()
+    public function test_retrieves_a_continent_by_id()
     {
-        $response = SoccerAPI::continents()->byId($this->continentId);
+        $response = SoccerAPI::continents()
+            ->byId($this->continentId);
 
         $this->assertEquals($this->continentId, $response->data->id);
     }
-
 }

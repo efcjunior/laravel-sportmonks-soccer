@@ -1,19 +1,21 @@
 <?php
+namespace Sportmonks\SoccerAPI\Tests\Requests;
+
 use Sportmonks\SoccerAPI\Facades\SoccerAPI;
+use Sportmonks\SoccerAPI\Tests\TestCase;
 
-/**
- * @group video
- */
-class RoundTest extends TestCase {
-
+class RoundTest extends TestCase
+{
     /**
-     * @test
+     * A basic test.
+     *
+     * @return void
      */
-    public function it_retrieves_round_by_id()
+    public function test_retrieves_round_by_id()
     {
-        $response = SoccerAPI::rounds()->byId($this->roundId);
+        $response = SoccerAPI::rounds()
+            ->byId($this->roundId);
 
         $this->assertNotEmpty($response->data);
     }
-
 }

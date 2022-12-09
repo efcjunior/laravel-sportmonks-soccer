@@ -79,9 +79,9 @@ abstract class TestCase extends BaseTestCase
     {
         $app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
 
-        $app->register(SoccerAPIServiceProvider::class);
-
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+        $app->register(SoccerAPIServiceProvider::class);
 
         return $app;
     }
